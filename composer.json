@@ -1,0 +1,37 @@
+{
+    "name": "1gbits/whmcs-dedicated-server",
+    "description": "Official 1Gbits dedicated server provisioning module for WHMCS resellers.",
+    "type": "whmcs-servers",
+    "license": "MIT",
+    "homepage": "https://www.1gbits.com/",
+    "authors": [
+        {
+            "name": "1Gbits",
+            "homepage": "https://www.1gbits.com/"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "OneGbits\\": "modules/servers/onegbits/lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OneGbits\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

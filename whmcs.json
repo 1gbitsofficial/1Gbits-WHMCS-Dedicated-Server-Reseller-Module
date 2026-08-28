@@ -1,0 +1,38 @@
+{
+    "schema": "1.0",
+    "type": "whmcs-servers",
+    "name": "onegbits",
+    "version": "1.0.0",
+    "license": "MIT",
+    "category": "provisioning",
+    "description": {
+        "name": "1Gbits Dedicated Server (Reseller)",
+        "tagline": "Automatically provision and manage 1Gbits dedicated servers from WHMCS.",
+        "long": "The official 1Gbits provisioning module for WHMCS resellers. It connects WHMCS to the 1Gbits reseller API so dedicated servers are ordered, suspended, unsuspended, upgraded and terminated straight from the WHMCS service, with live server details shown to both staff and clients. Credentials are stored once on the WHMCS server record and shared by every product, and every API exchange is recorded in the WHMCS module log with secrets masked.",
+        "features": [
+            "Automated dedicated server provisioning via the 1Gbits reseller API",
+            "Suspend, unsuspend and terminate from the WHMCS service page",
+            "Plan upgrades and downgrades through Change Package",
+            "Live status, hostname, IP, plan and OS on the admin Services tab",
+            "Client area panel showing the customer their server details",
+            "Test Connection support from System Settings > Servers"
+        ]
+    },
+    "logo": {
+        "filename": "logo.png"
+    },
+    "support": {
+        "homepage": "https://www.1gbits.com/",
+        "learn_more": "https://www.1gbits.com/dedicated-servers",
+        "email": "support@1gbits.com",
+        "support_url": "https://my.1gbits.com/submitticket.php",
+        "docs_url": "https://github.com/1gbitsofficial/1Gbits-WHMCS-Dedicated-Server-Reseller-Module#readme",
+        "bugs_url": "https://github.com/1gbitsofficial/1Gbits-WHMCS-Dedicated-Server-Reseller-Module/issues"
+    },
+    "authors": [
+        {
+            "name": "1Gbits",
+            "homepage": "https://www.1gbits.com/"
+        }
+    ]
+}
