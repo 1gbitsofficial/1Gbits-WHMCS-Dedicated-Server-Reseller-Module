@@ -1,107 +1,45 @@
-# WHMCS 1Gbits Dedicated Server – Reseller Provisioning Module
+# 1Gbits Dedicated Server (Reseller) — WHMCS Module
 
-**Status:** Production-ready module for reselling 1Gbits Dedicated Servers via WHMCS.  
-**Tested with:** WHMCS 8.x (PHP 7.4–8.2). No external dependencies.
+Version 1.0.0 · MIT licensed · requires WHMCS 8.x and PHP 7.4+
 
----
+## Quick setup
 
-## 📁 File Tree
+1. **System Settings → Servers → Add New Server**
+   - Hostname: `api.1gbits.com`
+   - Server Type: `1Gbits Dedicated Server (Reseller)`
+   - Username: your **API key**
+   - Access Hash: your **API secret**
+   - Secure (SSL): enabled
+   - Click **Test Connection**.
+
+2. **System Settings → Products/Services** — create a *Dedicated/VPS Server* product,
+   set the module to `1Gbits Dedicated Server (Reseller)`, assign the server group, and
+   configure **Plan SKU**, **Location**, **OS Template** and **Auto Assign IP**.
+
+3. *(Optional)* Add product custom fields **RAID Level**, **Additional IPs** and
+   **Order Notes** to pass extra order options through to the API.
+
+API credentials live on the server record, not the product, so they are shared by every
+product and **Test Connection** works.
+
+## Server ID
+
+`CreateAccount` persists the server ID returned by the API as a WHMCS service property.
+All other commands read it back from there — no manual custom field needed. Services
+created before 1.0.0 fall back to a **Server ID** custom field.
+
+## Files
+
 ```
-modules/
-  servers/
-    onegbits/
-      onegbits.php                 # Main WHMCS server module
-      README.md                    # Documentation
-      clientarea.tpl               # Optional client UI
-      lib/
-        ApiClient.php              # API client wrapper (cURL)
-        Helper.php                 # Utilities & normalization helpers
-```
-
----
-
-## Overview
-The **1Gbits WHMCS provisioning module** automates the dedicated server lifecycle (create, suspend, unsuspend, terminate, change package) and shows live server info to staff and clients inside WHMCS.
-
----
-
-## Installation
-1. Copy the folder to your WHMCS installation:
-   - `modules/servers/onegbits/`
-2. In WHMCS Admin, go to **System Settings → Products/Services**.
-3. Create a new **Product** (Type: *Dedicated/VPS Server*), open **Module Settings**:
-   - **Module Name:** `onegbits`
-   - Enter **API Base URL**, **API Key**, **API Secret** (from 1Gbits)
-   - Configure **Plan SKU**, **Location**, **OS Template**, **Auto Assign IP**
-4. Create **Custom Fields** (Setup → Products → Your Product → Custom Fields):
-   - **Server ID** (Admin Only, Text)
-   - **RAID Level** (Dropdown: `None,RAID1,RAID10`)
-   - **Additional IPs** (Text/Dropdown)
-   - **Order Notes** (Text Area, Optional)
-
----
-
-## Features
-- Automated provisioning via 1Gbits API
-- Suspend / Unsuspend / Terminate
-- Change Package (upgrade/downgrade)
-- Admin Services Tab: status, hostname, IP, OS
-- Client Area panel: live status & details
-- Test Connection from module settings
-
----
-
-## API Endpoints
-- `POST /reseller/orders` – Provision new server
-- `GET  /reseller/servers/{id}` – Server details
-- `POST /reseller/servers/{id}/suspend` – Suspend
-- `POST /reseller/servers/{id}/unsuspend` – Unsuspend
-- `DELETE /reseller/servers/{id}` – Terminate
-- `POST /reseller/servers/{id}/change-plan` – Change plan
-- `GET  /reseller/ping` – Health check
-
-> Your production environment may use different paths or authentication headers. Adjust `ApiClient::request()` and `::sign()` accordingly.
-
----
-
-## Client Area Template (Optional)
-Create `modules/servers/onegbits/clientarea.tpl`:
-```tpl
-<div class="panel panel-default">
-  <div class="panel-heading">Dedicated Server Status</div>
-  <table class="table">
-    <tr><td>Status</td><td>{$status}</td></tr>
-    <tr><td>Server ID</td><td>{$serverId}</td></tr>
-    <tr><td>Hostname</td><td>{$details.hostname}</td></tr>
-    <tr><td>Location</td><td>{$details.location}</td></tr>
-    <tr><td>IP Address</td><td>{$details.primaryIp}</td></tr>
-  </table>
-  {if $error}
-    <div class="alert alert-danger">{$error}</div>
-  {/if}
-</div>
+onegbits.php              WHMCS module commands
+lib/ApiClient.php         cURL client for the 1Gbits reseller API
+lib/Helper.php            Config, persistence and response normalisation
+templates/clientarea.tpl  Client area overview panel
 ```
 
----
+## Logs
 
-## Security
-- Restrict API access by IP and use HTTPS only
-- Rotate API credentials regularly
-- Ensure HMAC signature and headers match 1Gbits API spec
+API exchanges are recorded in **Utilities → Logs → Module Log**. Credentials are masked.
 
----
-
-## Extending
-Add more commands (reboot, reinstall, rDNS, rescue) and expose buttons in Admin/Client areas. Use `logModuleCall()` for observability.
-
----
-
-## Troubleshooting
-- **CreateAccount error** → Check API credentials and plan/location values
-- **Missing Server ID** → Save `serverId` returned by API into the **Server ID** custom field
-- **Ping/TestConnection fails** → Verify firewall & base URL
-
----
-
-## License
-MIT License.
+Full documentation, changelog and support links:
+<https://github.com/1gbitsofficial/1Gbits-WHMCS-Dedicated-Server-Reseller-Module>
