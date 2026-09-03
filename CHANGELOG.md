@@ -3,6 +3,15 @@
 All notable changes to this module are documented in this file. This project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+- Replaced the pixelated 200x200 `logo.png` with one rendered from a new vector
+  icon (`marketplace/src/icon.svg`); added a 512x512 copy for the Marketplace.
+- Added `marketplace/` with the Markdown-formatted listing description and
+  Twenty-One / Six theme client area screenshots requested by the WHMCS
+  Marketplace review.
+
 ## [1.0.0] - 2026-08-28
 
 First Marketplace release.

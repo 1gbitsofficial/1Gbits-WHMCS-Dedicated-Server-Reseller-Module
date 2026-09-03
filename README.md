@@ -16,7 +16,8 @@ server details shown to both staff and clients.
 
 ```
 whmcs.json                              # Marketplace manifest
-logo.png                                # 200x200 listing icon
+logo.png                                # 200x200 manifest icon (from marketplace/src/icon.svg)
+marketplace/                            # Marketplace listing text, 512px icon, screenshots
 modules/
   servers/
     onegbits/

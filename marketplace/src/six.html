@@ -1,0 +1,84 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="common.css"><style>
+body{background:#f9f9f9;color:#333;font-family:"Open Sans",Helvetica,Arial,sans-serif}
+.navbar{background:#3e3e3e;height:60px;display:flex;align-items:center;padding:0 60px;color:#fff;justify-content:space-between}
+.navbar .logo{font-size:20px;font-weight:700}
+.navbar .links{display:flex;gap:24px;font-size:14px;color:#ccc}
+.navbar .links .a{color:#fff;background:#2e2e2e;padding:20px 12px;margin:0 -12px}
+.header-lined{background:#3e3e3e;color:#fff;padding:0 60px 22px;font-size:26px;font-weight:300}
+.crumb{background:#fff;border-bottom:1px solid #e5e5e5;padding:10px 60px;font-size:13px;color:#777}
+.wrap{display:flex;gap:30px;padding:30px 60px;max-width:1440px}
+.side{width:270px;flex:none}
+.main{flex:1}
+.panel{background:#fff;border:1px solid #ddd;border-radius:4px;box-shadow:0 1px 1px rgba(0,0,0,.05);margin-bottom:20px}
+.panel-heading{background:#f5f5f5;border-bottom:1px solid #ddd;padding:10px 15px;font-size:16px;font-weight:500;color:#333;border-radius:3px 3px 0 0}
+.panel-heading.blue{background:#337ab7;color:#fff;border-color:#337ab7}
+.panel-body{padding:15px}
+.lg a{display:block;padding:10px 15px;border-bottom:1px solid #ddd;color:#555;font-size:14px}
+.lg a:last-child{border-bottom:0}
+.lg a.active{background:#337ab7;color:#fff}
+.label{display:inline-block;padding:3px 7px;border-radius:3px;font-size:12px;font-weight:700;color:#fff;background:#5cb85c}
+.btn{display:inline-block;padding:6px 12px;border-radius:4px;font-size:14px;border:1px solid #ccc;background:#fff;color:#333}
+.btn-primary{background:#337ab7;border-color:#2e6da4;color:#fff}
+.btn-danger{background:#d9534f;border-color:#d43f3a;color:#fff}
+.btn-success{background:#5cb85c;border-color:#4cae4c;color:#fff}
+table{width:100%;border-collapse:collapse}
+th,td{padding:8px 15px;text-align:left;border-top:1px solid #ddd;line-height:1.5}
+tr:first-child th,tr:first-child td{border-top:0}
+tbody tr:nth-child(odd){background:#f9f9f9}
+th{font-weight:700;width:25%}
+.p0{padding:0}
+.kv{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee;font-size:13px}
+.kv:last-child{border:0}
+.kv span:first-child{color:#777}
+.row2{display:flex;gap:20px;margin-bottom:20px}
+.tile{flex:1;background:#fff;border:1px solid #ddd;border-radius:4px;padding:15px;text-align:center}
+.tile b{display:block;font-size:22px;color:#337ab7}
+.foot{padding:20px 60px;color:#777;font-size:12px;background:#f5f5f5;border-top:1px solid #ddd}
+</style></head><body>
+<div class="navbar"><div class="logo">Acme Hosting</div><div class="links"><span>Home</span><span>Announcements</span><span>Knowledgebase</span><span>Network Status</span><span>Contact Us</span><span class="a">My Account ▾</span></div></div>
+<div class="header-lined">Product Details</div>
+<div class="crumb">Portal Home &nbsp;/&nbsp; Client Area &nbsp;/&nbsp; My Products &amp; Services &nbsp;/&nbsp; Product Details</div>
+<div class="wrap">
+  <div class="side">
+    <div class="panel"><div class="panel-heading blue">Actions</div><div class="lg">
+      <a class="active">Information</a><a>Change Password</a><a>Upgrade/Downgrade</a><a>Request Cancellation</a></div></div>
+    <div class="panel"><div class="panel-heading">Overview</div><div class="panel-body">
+      <div class="kv"><span>Registration Date</span><span>12/08/2026</span></div>
+      <div class="kv"><span>Recurring Amount</span><span>$189.00 USD</span></div>
+      <div class="kv"><span>Billing Cycle</span><span>Monthly</span></div>
+      <div class="kv"><span>Next Due Date</span><span>12/09/2026</span></div>
+      <div class="kv"><span>Status</span><span class="label">Active</span></div>
+    </div></div>
+  </div>
+  <div class="main">
+    <div class="row2">
+      <div class="tile"><b>Dedicated Server — Intel E3</b><span class="tt">Product/Service</span></div>
+      <div class="tile"><b>$189.00 USD</b><span class="tt">Recurring Amount / Monthly</span></div>
+      <div class="tile"><b>12/09/2026</b><span class="tt">Next Due Date</span></div>
+    </div>
+
+    <!-- Module output: modules/servers/onegbits/templates/clientarea.tpl -->
+    <div class="panel">
+      <div class="panel-heading">Dedicated Server Details</div>
+      <div class="panel-body p0">
+        <table><tbody>
+          <tr><th>Status</th><td><span class="label">active</span></td></tr>
+          <tr><th>Server ID</th><td>1G-482116</td></tr>
+          <tr><th>Hostname</th><td>srv-ams-04821.example.net</td></tr>
+          <tr><th>Location</th><td>Amsterdam, NL (ams)</td></tr>
+          <tr><th>IP Address</th><td>185.203.118.42</td></tr>
+          <tr><th>Plan</th><td>DEDI-INTEL-E3 &mdash; Intel Xeon E3-1270v6, 32 GB RAM, 2 × 480 GB SSD</td></tr>
+          <tr><th>Operating System</th><td>Ubuntu 24.04 LTS (64-bit)</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <div class="panel"><div class="panel-heading">Configurable Options</div><div class="panel-body">
+      <div class="kv"><span>RAID Level</span><span>RAID1</span></div>
+      <div class="kv"><span>Additional IPs</span><span>2</span></div>
+    </div></div>
+    <div style="text-align:right"><span class="btn btn-success">Upgrade/Downgrade</span> &nbsp; <span class="btn btn-danger">Request Cancellation</span></div>
+  </div>
+</div>
+<div class="foot">Copyright © 2026 Acme Hosting. All Rights Reserved.</div>
+</body></html>
